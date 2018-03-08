@@ -1,5 +1,5 @@
 # csgo-vlc-volume
-Adjusts your VLC (https://github.com/videolan/vlc) playback volume depending on if you are alive or not in Counter-Strike: Global Offensive
+Adjusts your VLC (https://github.com/videolan/vlc) playback volume depending on if you are alive or not in Counter-Strike: Global Offensive, or when the round ends.
 
 ### Required setup
 #### CS:GO
@@ -27,4 +27,4 @@ npm install
 Edit the `config.js` to match your setup.
 
 ## Run server.js with node and enjoy!
-Your volume should lower when you are alive and should up when you die.
+Your volume should lower when you are alive and should up when you die, or when a round ends.
