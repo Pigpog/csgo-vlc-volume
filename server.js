@@ -30,8 +30,10 @@ server = http.createServer( function(req, res) {
 					}
 				}
 			}
-			if(bodyParsed.round.phase==="over"){
-				vlc.volume(config.upvol)
+			if(bodyParsed.round){
+				if(bodyParsed.round.phase==="over"){
+					vlc.volume(config.upvol)
+				}
 			}
         	res.end( '' );
         });
