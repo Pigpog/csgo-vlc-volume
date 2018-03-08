@@ -26,5 +26,5 @@ npm install
 ### IMPORTANT
 Edit the `config.js` to match your setup.
 
-## Run server.js and enjoy!
+## Run server.js with node and enjoy!
 Your volume should lower when you are alive and should up when you die.
