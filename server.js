@@ -18,8 +18,9 @@ server = http.createServer( function(req, res) {
             body += data;
         });
         req.on('end', function () {
-			if(JSON.parse(body).player){
-				if(JSON.parse(body).player.state.health===0){	//if health is 0 (dead)
+			bodyParsed=JSON.parse(body);
+			if(bodyParsed.player){
+				if(bodyParsed.player.state.health===0){	//if health is 0 (dead)
 					if(currvol!==config.upvol){
 						vlc.volume(config.upvol)
 					}
@@ -28,6 +29,9 @@ server = http.createServer( function(req, res) {
 						vlc.volume(config.downvol)
 					}
 				}
+			}
+			if(bodyParsed.round.phase==="over"){
+				vlc.volume(config.upvol)
 			}
         	res.end( '' );
         });
