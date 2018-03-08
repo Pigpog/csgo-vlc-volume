@@ -4,7 +4,7 @@ Adjusts your VLC (https://github.com/videolan/vlc) playback volume depending on 
 ### Required setup
 #### CS:GO
 
-Copy the `gamestate_integration_vlc.cfg` file to the following directory, where %STEAMAPPS% is the directory to the Steam Library that contains CS:GO (Default directory on Windows is `/Program Files (x86)/Steam/steamapps/`
+Copy the `gamestate_integration_vlc.cfg` file to the following directory, where %STEAMAPPS% is the directory to the Steam Library that contains CS:GO (Default directory on Windows is `/Program Files (x86)/Steam/steamapps/`)
 
 ```
 %STEAMAPPS%/common/Counter-Strike Global Offensive/csgo/cfg/
