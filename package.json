@@ -1,0 +1,28 @@
+{
+  "name": "csgo-vlc-volume",
+  "version": "1.0.0",
+  "description": "Adjusts your VLC (https://github.com/videolan/vlc) playback volume depending on if you are alive or not in Counter Strike: Global Offensive",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pigpog/csgo-vlc-volume.git"
+  },
+  "keywords": [
+    "csgo",
+    "counter-strike",
+    "vlc"
+  ],
+  "author": "Pigpog",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pigpog/csgo-vlc-volume/issues"
+  },
+  "homepage": "https://github.com/Pigpog/csgo-vlc-volume#readme",
+  "dependencies": {
+    "droopy-vlc": "^0.1.0"
+  }
+}
