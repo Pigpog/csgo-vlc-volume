@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Pigpog/csgo-vlc-volume#readme",
   "dependencies": {
-    "droopy-vlc": "^0.1.0"
+    "droopy-vlc": "^0.1.0",
+    "qs": "^6.5.1"
   }
 }
