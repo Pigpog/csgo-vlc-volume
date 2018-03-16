@@ -10,10 +10,10 @@ let lightsOn=false;
 //https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration#Sample_HTTP_POST_Endpoint_Server
 function toggleLights(alive){
 	if(alive && !lightsOn){
-		spawn('C:\\Python27\\python',["toggle.py"]);
+		spawn('python',["toggle.py"]);
 		lightsOn=true
 	}else if(!alive && lightsOn){
-		spawn('C:\\Python27\\python',["toggle.py"]);
+		spawn('python',["toggle.py"]);
 		lightsOn=false
 	}
 }
