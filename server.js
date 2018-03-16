@@ -4,7 +4,6 @@ fs = require('fs');
 var vlcService = require("droopy-vlc"),
     vlc = new vlcService("http://:"+config.VLCpassword+"@localhost:"+config.VLCport);
 var currvol=0;
-let lightsOn=false;
 
 function toggleVolume(up){
 	if(up && currvol!==config.upvol){
