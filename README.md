@@ -1,5 +1,6 @@
-# csgo-vlc-volume
-Adjusts your VLC (https://github.com/videolan/vlc) playback volume depending on if you are alive or not in Counter-Strike: Global Offensive, or when the round ends.
+# csgo-vlc-volume Keyboard lights edition
+### (use master branch for just volume)
+Adjusts your VLC (https://github.com/videolan/vlc) playback volume and toggles your keyboard lights (using the Scroll Lock key) depending on if you are alive or not in Counter-Strike: Global Offensive, or if the round ends.
 
 ### Required setup
 #### CS:GO
@@ -12,6 +13,12 @@ Copy the `gamestate_integration_vlc.cfg` file to the following directory, where 
 
 #### VLC
 Now you have to configure the VLC web interface. To do this, go to the Preferences menu (under Tools) and select `All` under `Show settings` in the bottom left. Scroll to Interface and click on Main interfaces. Check the Web interface to enable it. Now expand the Main interfaces category and choose Lua. Set the password under `Lua HTTP`.
+
+#### Python (only for keyboard lighting)
+Tested on Python 2.7. Python is needed because NodeJS cannot send key signals natively.
+```
+pip install keyboard
+```
 
 #### This Application
 
