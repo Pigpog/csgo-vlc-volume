@@ -3,8 +3,20 @@ http = require('http');
 fs = require('fs');
 var vlcService = require("droopy-vlc"),
     vlc = new vlcService("http://:"+config.VLCpassword+"@localhost:"+config.VLCport);
+var spawn = require("child_process").spawn
 var currvol=0;
+let lightsOn=false;
 
+//https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration#Sample_HTTP_POST_Endpoint_Server
+function toggleLights(alive){
+	if(alive && !lightsOn){
+		spawn('C:\\Python27\\python',["toggle.py"]);
+		lightsOn=true
+	}else if(!alive && lightsOn){
+		spawn('C:\\Python27\\python',["toggle.py"]);
+		lightsOn=false
+	}
+}
 function toggleVolume(up){
 	if(up && currvol!==config.upvol){
 		vlc.volume(config.upvol)
@@ -14,8 +26,6 @@ function toggleVolume(up){
 		currvol=config.downvol
 	}
 }
-
-//https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration#Sample_HTTP_POST_Endpoint_Server
 server = http.createServer( function(req, res) {
     if (req.method == 'POST') {
         console.log("Handling POST request...");
@@ -28,20 +38,23 @@ server = http.createServer( function(req, res) {
         req.on('end', function () {
 			bodyParsed=JSON.parse(body);
 			if(bodyParsed.player){
-					console.log("youre playing");
+					console.log("youre playing")
 					if(bodyParsed.player.state.health===0){	//if health is 0 (dead)
 						if(currvol!==config.upvol){
-							toggleVolume(true);
+							toggleVolume(true)
+							toggleLights(false)
 						}
 					}else{
 						if(currvol!==config.downvol){
-							toggleVolume(false);
+							toggleVolume(false)
+							toggleLights(true)
 						}
 					}
 			}
 			if(bodyParsed.round){
 				if(bodyParsed.round.phase==="over"){
-					toggleVolume(true);
+					vlc.volume(config.upvol)
+					toggleLights(false)
 				}
 			}
         	res.end( '' );
