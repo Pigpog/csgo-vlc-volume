@@ -27,7 +27,7 @@ server = http.createServer( function(req, res) {
         });
         req.on('end', function () {
 			bodyParsed=JSON.parse(body);
-			if(bodyParsed.player){
+			if(bodyParsed.player && bodyParsed.provider.steamid===bodyParsed.player.steamid){
 					console.log("youre playing");
 					if(bodyParsed.player.state.health===0){	//if health is 0 (dead)
 						if(currvol!==config.upvol){
