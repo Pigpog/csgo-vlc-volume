@@ -37,24 +37,22 @@ server = http.createServer( function(req, res) {
         });
         req.on('end', function () {
 			bodyParsed=JSON.parse(body);
-			if(bodyParsed.player && bodyParsed.provider.steamid===bodyParsed.player.steamid){
-					console.log("youre playing")
-					if(bodyParsed.player.state.health===0){	//if health is 0 (dead)
-						if(currvol!==config.upvol){
-							toggleVolume(true)
-							toggleLights(false)
-						}
-					}else{
-						if(currvol!==config.downvol){
-							toggleVolume(false)
-							toggleLights(true)
+			if(bodyParsed.player){
+				if(bodyParsed.provider && bodyParsed.player.state){
+					if(bodyParsed.provider.steamid===bodyParsed.player.steamid){
+						console.log("youre playing")
+						if(bodyParsed.player.state.health===0){	//if health is 0 (dead)
+							if(currvol!==config.upvol){
+								toggleVolume(true)
+								toggleLights(false)
+							}
+						}else{
+							if(currvol!==config.downvol){
+								toggleVolume(false)
+								toggleLights(true)
+							}
 						}
 					}
-			}
-			if(bodyParsed.round){
-				if(bodyParsed.round.phase==="over"){
-					vlc.volume(config.upvol)
-					toggleLights(false)
 				}
 			}
         	res.end( '' );
